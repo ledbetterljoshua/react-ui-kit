@@ -1,0 +1,49 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:flowtype/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true,
+      "impliedStrict": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "flowtype"
+  ],
+  "rules": {
+    "eqeqeq": [
+      "error"
+    ],
+    "react/prop-types": [
+      "warn"
+    ],
+    "no-var": [
+      "warn"
+    ],
+    "no-duplicate-imports": [
+      "error"
+    ],
+    "prefer-const": [
+      "error"
+    ],
+    "prefer-spread": [
+      "error"
+    ],
+    "no-console": [
+      "off"
+    ]
+  }
+}
