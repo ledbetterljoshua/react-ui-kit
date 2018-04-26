@@ -2,8 +2,9 @@ import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
-import alias from 'rollup-plugin-alias';
+import alias from 'rollup-plugin-alias'
 import resolve from 'rollup-plugin-node-resolve'
+import sass from 'rollup-plugin-sass'
 import pkg from './package.json'
 //https://github.com/rollup/rollup/wiki/pkg.module
 
@@ -21,9 +22,10 @@ export default {
     }
   ],
   plugins: [
+    sass(),
     external(),
     alias({
-      'grid-ui': './components'
+      'grid-ui': './src/components'
     }),
     postcss({
         modules: true

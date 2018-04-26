@@ -1,5 +1,6 @@
 import '@storybook/addon-actions/register';
 import '@storybook/addon-links/register';
+import '../GenDocs/register';
 //https://github.com/storybooks/storybook/tree/master/addons/knobs
 // import '@storybook/addon-knobs/register';
 // https://github.com/storybooks/storybook/tree/master/addons/info
