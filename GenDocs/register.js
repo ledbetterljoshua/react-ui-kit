@@ -51,7 +51,7 @@ class DocGen extends React.Component {
     const {name, description, props} = route;
     
     return (
-      <div className="componentpage">
+      <div style={styles}>
         <h2>{name}</h2>
         <p>{description}</p>
 

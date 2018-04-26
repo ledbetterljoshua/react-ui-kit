@@ -11,3 +11,12 @@ tmp
 /dist/
 stats.json
 /statsgraph/
+
+# built component library
+/lib
+
+# built docs
+/docs
+
+# Generated component data
+/config/componentData.js

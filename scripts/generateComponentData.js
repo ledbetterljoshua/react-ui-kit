@@ -5,7 +5,7 @@ var parse = require('react-docgen').parse;
 var chokidar = require('chokidar');
 
 var paths = {
-  examples: path.join(__dirname, '../src', 'docs', 'examples'),
+  examples: path.join(__dirname, '../stories'),
   components: path.join(__dirname, '../src', 'components'),
   output: path.join(__dirname, '../config', 'componentData.js')
 };
@@ -41,34 +41,8 @@ function getComponentData(paths, componentName) {
     description: info.description,
     props: info.props,
     code: content,
-    examples: getExampleData(paths.examples, componentName)
+    // examples: getExampleData(paths.examples, componentName)
   }
-}
-
-function getExampleData(examplesPath, componentName) {
-  var examples = getExampleFiles(examplesPath, componentName);
-  return examples.map(function(file) {
-    var filePath = path.join(examplesPath, componentName, file);
-    var content = readFile(filePath);
-    var info = parse(content);
-    return {
-      // By convention, component name should match the filename.
-      // So remove the .js extension to get the component name.
-      name: file.slice(0, -3),
-      description: info.description,
-      code: content
-    };
-  });
-}
-
-function getExampleFiles(examplesPath, componentName) {
-  var exampleFiles = [];
-  try {
-    exampleFiles = getFiles(path.join(examplesPath, componentName));
-  } catch(error) {
-    console.log(chalk.red(`No examples found for ${componentName}.`));
-  }
-  return exampleFiles;
 }
 
 function getDirectories(filepath) {
