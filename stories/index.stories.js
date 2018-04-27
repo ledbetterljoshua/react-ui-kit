@@ -1,7 +1,9 @@
 /**
   * Storybook list of stories
   *
-  * order is reflected in storybook sidebar
+  * This file imports and loops over all of the stories, 
+  * and then generates documentation for each of them based on their comments and props
+  * pretty cool huh
   */
  import React from 'react'
  import { configure, addDecorator } from '@storybook/react';
@@ -9,10 +11,8 @@
  import { GenDocs } from 'storybook-custom-plugins/GenDocs'
 
  const req = require.context('./', true, /index\.js$/)
- console.log(req.keys())
  
 addDecorator((story, api) => {
-  console.log(story, api)
   return (
       <GenDocs channel={addons.getChannel()} api={api}>
         {story()}
