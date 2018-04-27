@@ -1,20 +1,11 @@
 import React from 'react';
 import addons from '@storybook/addons';
+import styled from 'styled-components'
+
 import componentData from 'config/componentData';
 import Example from './Example';
 import addonAPI from '@storybook/addons';
 import Props from './Props'
-
-const styles = {
-  notesPanel: {
-    margin: 10,
-    fontFamily: 'Arial',
-    fontSize: 14,
-    color: '#444',
-    width: '100%',
-    overflow: 'auto',
-  }
-};
 
 class DocGen extends React.Component {
   constructor(...args) {
@@ -53,7 +44,7 @@ class DocGen extends React.Component {
     const {name, description, props, examples} = route;
     
     return (
-      <div style={styles}>
+      <Container>
         <h2>{name}</h2>
         <p>{description}</p>
 
@@ -70,7 +61,7 @@ class DocGen extends React.Component {
           <Props props={props} /> :
           "This component accepts no props."
         }
-      </div>
+      </Container>
     );
   }
 
@@ -96,3 +87,32 @@ addons.register('kadira/docs', (api) => {
     ),
   })
 })
+
+const Container = styled.div`
+  font-family: -apple-system, ".SFNSText-Regular", "San Francisco", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+  margin: 10px;
+  color: #424242;
+  letter-spacing: 0.4px;
+  p {
+    color: #7d7d7d;
+  }
+  table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse;
+    th, td {
+      padding: .75rem;
+      vertical-align: top;
+      border-top: 1px solid #dee2e6;
+    }
+    thead th {
+      padding: .75rem;
+      vertical-align: bottom;
+      border-bottom: 2px solid #dee2e6;
+      text-align: left;
+      background: #f7f7f7;
+    }
+  }
+`

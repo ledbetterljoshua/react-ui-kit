@@ -1,27 +1,13 @@
 const path = require("path");
 
-module.exports = {
-  module: {
-    rules: [{
-      test: /\.scss$/,
-      use: [
-        {
-          loader: "style-loader"
-        },
-        {
-          loader: "css-loader",
-        },
-        {
-          loader: "sass-loader",
-        }
-      ]
-    }]
-  },
-  resolve: {
-    alias: {
-      'grid-ui': path.resolve(__dirname, '../src/components'),
-      'config': path.resolve(__dirname, '../config'),
-      'storybook-custom-plugins': path.resolve(__dirname, '../storybook-custom-plugins')
-    },
-  }
+module.exports = (baseConfig, env, defaultConfig) => {
+  // Extend defaultConfig as you need.
+
+  // console.log(defaultConfig)
+  console.log(defaultConfig.module.rules)
+  defaultConfig.resolve.alias['grid-ui'] = path.resolve(__dirname, '../src/components'),
+  defaultConfig.resolve.alias['config'] = path.resolve(__dirname, '../config'),
+  defaultConfig.resolve.alias['storybook-custom-plugins'] = path.resolve(__dirname, '../storybook-custom-plugins')
+
+  return defaultConfig;
 };
