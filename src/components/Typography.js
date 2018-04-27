@@ -1,7 +1,7 @@
 // @flow
 import { Colors } from './Colors.js'
 
-export function Typography(size) {
+export function Typography(size: string) {
   switch (size) {
     case 'tiny':
       return `

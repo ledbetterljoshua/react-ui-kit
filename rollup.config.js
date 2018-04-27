@@ -27,6 +27,7 @@ export default {
     external(),
     alias({
       'grid-ui': path.resolve(__dirname, './src/components/index.js'),
+      'enzyme_wrapped': path.resolve(__dirname, './src/wrappedLibs/enzyme.js'),
       'storybook-custom-plugins': path.resolve(__dirname, './storybook-custom-plugins'),
       'congif': path.resolve(__dirname, './config'),
     }),

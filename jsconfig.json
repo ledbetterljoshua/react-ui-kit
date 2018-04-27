@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "grid-ui/*": ["src/components/index.js"],
+      "enzyme_wrapped/*": ["src/wrappedLibs/enzyme.j"],
+      "storybook-custom-plugins/*": ["storybook-custom-plugins/*"],
+      "congif/*": ["config/*"],
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

@@ -68,7 +68,7 @@
     "react-docgen": "^2.14.0",
     "react-dom": "^16.2.0",
     "react-highlight": "^0.12.0",
-    "react-test-renderer": "^15.6.2",
+    "react-test-renderer": "^16.3.2",
     "regenerator-runtime": "^0.11.1",
     "rollup": "^0.54.0",
     "rollup-plugin-alias": "^1.4.0",
@@ -90,5 +90,13 @@
   "license": "ISC",
   "dependencies": {
     "update": "^0.7.4"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^grid-ui(.*)$": "<rootDir>/src/components$1",
+      "^enzyme_wrapped(.*)$": "<rootDir>/src/wrappedLibs/enzyme$1",
+      "^storybook-custom-plugins(.*)$": "<rootDir>/storybook-custom-plugins$1",
+      "^congif(.*)$": "<rootDir>/congif$1"
+    }
   }
 }
