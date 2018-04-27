@@ -1,7 +1,5 @@
 import React from 'react';
 import { PasswordInput } from 'grid-ui';
-import {storiesOf} from '@storybook/react';
-import { GenDocs } from 'storybook-custom-plugins/GenDocs'
 
 /** All features enabled */
 class ExamplePasswordInput extends React.Component {
@@ -34,10 +32,4 @@ class ExamplePasswordInput extends React.Component {
   }
 
 }
-
-storiesOf('PasswordInput', module)
-  .add('Default', () => (
-    <GenDocs >
-      <ExamplePasswordInput />
-    </GenDocs>
-  ))
+export default ExamplePasswordInput
