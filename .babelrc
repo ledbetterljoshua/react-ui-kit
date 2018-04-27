@@ -1,13 +1,10 @@
 {
   "presets": [
     [
-      "env",
-      {
-        "modules": false
-      }
+      "env", {"modules": false}
     ],
-    "stage-0",
     "react",
+    "stage-0",
     "flow"
   ],
   "plugins": [
@@ -18,5 +15,10 @@
         "ssr": true
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [["env"], "react", "stage-0"]
+    }
+  }
 }
