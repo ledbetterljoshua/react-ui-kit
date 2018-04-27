@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextInput, PasswordInput } from 'grid-ui';
+import { TextInput, PasswordInput, Button } from 'grid-ui';
+
+import styled from 'styled-components'
 
 /** Registration form with built-in validation. */
 class RegistrationForm extends React.Component {
@@ -61,7 +63,7 @@ class RegistrationForm extends React.Component {
     return (
       submitted ?
       <h2>{this.props.confirmationMessage}</h2> :
-      <div>
+      <Container>
         <TextInput
           htmlId="registration-form-email"
           name="email"
@@ -81,11 +83,20 @@ class RegistrationForm extends React.Component {
           maxLength={50}
           error={errors.password} />
 
-        <input type="submit" value="Register" onClick={this.onSubmit} />
-      </div>
+        <Button primary label="Register" onClick={this.onSubmit} />
+      </Container>
     )
   }
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 40px;
+`
 
 RegistrationForm.propTypes = {
   /** Message displayed upon successful submission */

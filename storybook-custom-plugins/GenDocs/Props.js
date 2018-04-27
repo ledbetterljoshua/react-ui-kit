@@ -9,7 +9,7 @@ const Props = ({props}) => {
           <th>Name</th>
           <th>Description</th>
           <th>Type</th>
-          <th>Default</th>
+          <th style={{textAlign: "center"}}>Default</th>
           <th>Required</th>
         </tr>
       </thead>
@@ -20,7 +20,7 @@ const Props = ({props}) => {
             <tr key={key}>
               <td>{key}</td>
               <td>{props[key].description}</td>
-              <td>{props[key].type.name}</td>
+              <td>{props[key].type && props[key].type.name}</td>
               <td style={{textAlign: "center"}}>{props[key].defaultValue && props[key].defaultValue.value}</td>
               <td style={{textAlign: "center"}}>{props[key].required && "X"}</td>
             </tr>

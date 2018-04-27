@@ -14,12 +14,13 @@ class ProgressBar extends React.Component {
   }
   
   getColor = (percent) => {
-    if (this.props.percent === 100) return 
-    'green'
+    console.log('percent', this.props.percent)
+    if (this.props.percent === 100) return 'green'
     return this.props.percent > 50 ? 'lightgreen' : 'red'
   }
   
   get_width_as_percent_of_totdal_width = () => {
+    console.log(parseInt(this.props.width * (this.props.percent / 100), 10))
     return parseInt(this.props.width * (this.props.percent / 100), 10)
   }
   
@@ -41,12 +42,15 @@ ProgressBar.defaultProps = {
 };
 
 const Container = styled.div`
-  border: 1px solid lightgrey;
   width: ${props => props.width}px;
+  border: 1px solid #f2efef;
+  border-radius: 50px;
+  margin-top: 5px;
 `
 const Progress = styled.div`
   width: ${props => props.width}px;
-  height: 10px;
+  border-radius: 50px;
+  height: 5px;
   background-color: ${props => props.backgroundColor};
 `
 

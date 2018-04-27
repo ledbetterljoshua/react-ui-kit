@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ProgressBar, Icon, TextInput } from '../index.js';
 
+import styled from 'styled-components'
+
 /** Password input with integrated label, quality tips, and show password toggle. */
 class PasswordInput extends React.Component {
   constructor(props) {
@@ -36,12 +38,11 @@ class PasswordInput extends React.Component {
         {...props}>
         {
           showVisibilityToggle &&
-          <a
+          <IconWrap
             href=""
-            onClick={this.toggleShowPassword}
-            style={{ marginLeft: 5 }}>
+            onClick={this.toggleShowPassword}>
             <Icon />
-          </a>
+          </IconWrap>
         }
         {
           value.length > 0 && quality && <ProgressBar percent={quality} width={130} />
@@ -50,6 +51,12 @@ class PasswordInput extends React.Component {
     );
   }
 }
+
+const IconWrap = styled.div`
+  margin-right: 10px;
+  top: 26px;
+  position: absolute;
+`
 
 PasswordInput.propTypes = {
   /** Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing. */
@@ -82,6 +89,7 @@ PasswordInput.propTypes = {
   /** Validation error to display */
   error: PropTypes.string
 };
+
 
 PasswordInput.defaultProps = {
   maxLength: 50,
