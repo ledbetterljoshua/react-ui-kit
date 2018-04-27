@@ -25,7 +25,9 @@ class DocGen extends React.Component {
   }
   
   updateRoute(current_component) {
-    return componentData.find((component) => component.name === current_component) || ''
+    const found_component = componentData.find((component) => component.name === current_component) || ''
+    console.log(componentData, found_component)
+    return found_component
   }
   
   updateRouteState() {
@@ -48,16 +50,17 @@ class DocGen extends React.Component {
     api.onStory((kind, story) => console.log(kind, story));
     const { route, example = [] } = this.state;
     if(!route) return <div></div>
-    const {name, description, props} = route;
+    const {name, description, props, examples} = route;
     
     return (
       <div style={styles}>
         <h2>{name}</h2>
         <p>{description}</p>
 
-        <h3>Example</h3>
+        <h3>Example{examples.length > 1 && "s"}</h3>
         {
-          example ? <Example  example={route} componentName={name} /> :
+          examples.length > 0 ?
+          examples.map( example => <Example key={example.code} example={example} componentName={name} /> ) :
           "No examples exist."
         }
 

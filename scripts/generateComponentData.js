@@ -34,26 +34,58 @@ function generate(paths) {
 }
 
 function getComponentData(paths, componentName) {
-  var content = readFile(path.join(paths.components, componentName, componentName + '.js'));
+  var filePath = path.join(paths.components, componentName, componentName + '.js')
+  var content = readFile(filePath);
   var info = parse(content);
   return {
     name: componentName,
     description: info.description,
     props: info.props,
     code: content,
-    // examples: getExampleData(paths.examples, componentName)
+    examples: getExampleData(paths.examples, componentName)
   }
+}
+
+function getExampleData(examplesPath, componentName) {
+  var examples = getExampleFiles(examplesPath, componentName);
+  return examples.map(function(file) {
+    var filePath = path.join(examplesPath, componentName, file);
+    var content = readFile(filePath);
+    var info = parse(content);
+    return {
+      // By convention, component name should match the filename.
+      // So remove the .js extension to get the component name.
+      name: file.slice(0, -3),
+      description: info.description,
+      code: content
+    };
+  });
+}
+
+function getExampleFiles(examplesPath, componentName) {
+  var exampleFiles = [];
+  var pathtoseek = path.join(examplesPath, componentName)
+  try {
+    exampleFiles = getFiles(pathtoseek, true);
+  } catch(error) {
+    console.log(chalk.red(`No examples found for ${componentName}.`));
+  }
+  return exampleFiles;
 }
 
 function getDirectories(filepath) {
   return fs.readdirSync(filepath).filter(function(file) {
-    return fs.statSync(path.join(filepath, file)).isDirectory();
+    return fs.statSync(path.join(filepath, file)).isDirectory(); 
   });
 }
 
-function getFiles(filepath) {
+function getFiles(filepath, no_indexes) {
   return fs.readdirSync(filepath).filter(function(file) {
-    return fs.statSync(path.join(filepath, file)).isFile();
+    if(no_indexes && file === 'index.js') {
+      return false
+    } else {
+      return fs.statSync(path.join(filepath, file)).isFile();
+    }
   });
 }
 
