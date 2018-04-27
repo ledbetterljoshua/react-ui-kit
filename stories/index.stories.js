@@ -5,25 +5,25 @@
   */
  import React from 'react'
  import { configure, addDecorator } from '@storybook/react';
- 
+ import addons from '@storybook/addons';
+ import { GenDocs } from 'storybook-custom-plugins/GenDocs'
+
  const req = require.context('./', true, /index\.js$/)
  console.log(req.keys())
- addDecorator(story => (
-  <div style={{fonSize: '100px'}}>
-    HEYYY
-    {story()}
-  </div>
-));
-
+ 
+addDecorator((story, api) => {
+  console.log(story, api)
+  return (
+      <GenDocs channel={addons.getChannel()} api={api}>
+        {story()}
+      </GenDocs>
+    )
+});
 
 function loadStories() {
   req.keys().forEach((filename) => req(filename))
 }
 
 configure(loadStories, module);
- 
-//  import './Introduction'
-//  import './Button'
-//  import './PasswordInput'
  
  

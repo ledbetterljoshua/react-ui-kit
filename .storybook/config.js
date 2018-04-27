@@ -10,7 +10,7 @@ function loadStories() {
 configure(loadStories, module);
 
 setOptions({
-  name: 'Grid UI',
+  name: 'Grid_UI',
   url: 'https://github.com/ledbetterljoshua/react-ui-kit',
   sidebarAnimations: true
 });

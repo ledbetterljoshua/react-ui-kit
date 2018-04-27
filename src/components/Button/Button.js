@@ -5,7 +5,7 @@ import styled from 'styled-components'
   */
 const Button = ({label, onClick}) => {
   return (
-    <Container onClick={() => onClick()}>{label}</Container>
+    <Container onClick={() => onClick}>{label}</Container>
   )
 }
 

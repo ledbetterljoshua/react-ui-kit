@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import Highlight from 'react-highlight'
 
 class CodeExample extends React.Component {
-  componentDidMount() {
-
-  }
-
   render() {
     return (
       <Highlight className='javascript'>
