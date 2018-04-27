@@ -25,7 +25,9 @@ export default {
     sass(),
     external(),
     alias({
-      'grid-ui': './src/components'
+      'grid-ui': './src/components',
+      'storybook-custom-plugins': './storybook-custom-plugins',
+      'congif': './config',
     }),
     postcss({
         modules: true

@@ -1,6 +1,6 @@
 import React from 'react';
 import addons from '@storybook/addons';
-import componentData from '../config/componentData';
+import componentData from 'config/componentData';
 import Example from './Example';
 import addonAPI from '@storybook/addons';
 import Props from './Props'

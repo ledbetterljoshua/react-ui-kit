@@ -19,7 +19,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'grid-ui': path.resolve(__dirname, '../src/components')
+      'grid-ui': path.resolve(__dirname, '../src/components'),
+      'config': path.resolve(__dirname, '../config'),
+      'storybook-custom-plugins': path.resolve(__dirname, '../storybook-custom-plugins')
     },
   }
 };
