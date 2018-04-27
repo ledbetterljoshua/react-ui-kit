@@ -38,10 +38,11 @@ class PasswordInput extends React.Component {
         {...props}>
         {
           showVisibilityToggle &&
-          <IconWrap
-            href=""
-            onClick={this.toggleShowPassword}>
-            <Icon />
+          <IconWrap>
+            <a href=""
+              onClick={this.toggleShowPassword}>
+              <Icon />
+            </a>
           </IconWrap>
         }
         {
@@ -56,6 +57,7 @@ const IconWrap = styled.div`
   margin-right: 10px;
   top: 26px;
   position: absolute;
+  right: 0;
 `
 
 PasswordInput.propTypes = {

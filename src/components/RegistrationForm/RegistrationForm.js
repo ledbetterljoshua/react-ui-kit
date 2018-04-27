@@ -92,7 +92,7 @@ class RegistrationForm extends React.Component {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; 
   max-width: 450px;
   margin: 0 auto;
   padding: 40px;

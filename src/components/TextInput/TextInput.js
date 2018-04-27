@@ -10,7 +10,7 @@ import { Label } from '../';
 function TextInput({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) {
   console.log(htmlId, name, label)
   return (
-    <div style={{marginBottom: 16}}>
+    <Container>
       <Label htmlFor={htmlId} label={label} required={required} />
       <Input
         id={htmlId}
@@ -23,7 +23,7 @@ function TextInput({htmlId, name, label, type = "text", required = false, onChan
         {...props}/>
         {children}
       {error && <Error>{error}</Error>}
-    </div>
+    </Container>
   );
 };
 
