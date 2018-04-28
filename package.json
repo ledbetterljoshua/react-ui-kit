@@ -1,27 +1,26 @@
 {
-  "name": "react-ui-kit",
+  "name": "react-component-library-starter-kit",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "scripts": {
     "prestart": "npm run gen:docs",
-    
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
-    
     "gen:docs": "node scripts/generateComponentData.js",
     "gen:docs-watch": "npm run gen:docs -- --watch",
     "lint": "eslint src/**; exit 0",
     "lint:watch": "esw -w src/**",
-    
     "prepublish": "npm run build",
     "start": "npm-run-all --parallel gen:docs-watch storybook",
     "storybook": "start-storybook -p 6006",
-    "storybook:docs":  "npm-run-all --parallel gen:docs-watch storybook",
+    "storybook:docs": "npm-run-all --parallel gen:docs-watch storybook",
     "build-storybook": "build-storybook  -c .storybook -o .out",
-   
     "new-comp": "node scripts/component-creator.js",
     "test": "node scripts/run_tests.js --env=jsdom"
   },
@@ -79,6 +78,7 @@
     "rollup-plugin-alias": "^1.4.0",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-commonjs": "^8.2.1",
+    "rollup-plugin-ignore": "^1.0.3",
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-peer-deps-external": "^2.0.0",
     "rollup-plugin-postcss": "^1.1.0",
@@ -90,12 +90,20 @@
   "files": [
     "dist"
   ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "update": "^0.7.4"
+  "keywords": [
+    "react",
+    "components",
+    "starterkit",
+    "storybook",
+    "rollup"
+  ],
+  "author": {
+    "name": "Joshua Ledbetter",
+    "email": "ledbetterljoshua@gmail.com",
+    "url": "https://ledbetterljoshua.github.io"
   },
+  "license": "ISC",
+  "dependencies": {},
   "jest": {
     "moduleNameMapper": {
       "^grid-ui(.*)$": "<rootDir>/src/components$1",

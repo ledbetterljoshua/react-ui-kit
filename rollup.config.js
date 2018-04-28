@@ -1,4 +1,5 @@
 import babel from 'rollup-plugin-babel'
+import ignore from 'rollup-plugin-ignore'
 import commonjs from 'rollup-plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
@@ -23,6 +24,7 @@ export default {
     }
   ],
   plugins: [
+    ignore(['.spec', '__snapshots__']),
     sass(),
     external(),
     alias({
