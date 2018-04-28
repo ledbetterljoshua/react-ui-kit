@@ -17,12 +17,13 @@
     "lint": "eslint src/**; exit 0",
     "lint:watch": "esw -w src/**",
     "prepublish": "npm run build",
-    "start": "npm-run-all --parallel gen:docs-watch storybook",
+    "start": "npm-run-all --parallel test:watch gen:docs-watch storybook",
     "storybook": "start-storybook -p 6006",
     "storybook:docs": "npm-run-all --parallel gen:docs-watch storybook",
     "build-storybook": "build-storybook  -c .storybook -o .out",
     "new-comp": "node scripts/component-creator.js",
-    "test": "node scripts/run_tests.js --env=jsdom"
+    "test": "node scripts/run_tests.js --env=jsdom",
+    "test:watch": "npm t -- --watch"
   },
   "peerDependencies": {
     "prop-types": "^15.6.1",

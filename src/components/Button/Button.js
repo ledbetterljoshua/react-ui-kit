@@ -6,11 +6,11 @@ import styled from 'styled-components'
   */
 const Button = ({label, onClick, primary = false, round = false}) => {
   return (
-    <Container primary={primary} round={round} onClick={() => onClick}>
+    <Container primary={primary} round={round} onClick={onClick ? onClick : () => null}>
       <span>{label}</span>
     </Container>
   )
-}
+} 
 
 const Container = styled.div`
   background: ${props => props.primary ? '#1787e6' : '#f1f3f5'};
@@ -20,7 +20,7 @@ const Container = styled.div`
   border-radius: ${props => props.round ? '500px' : '4px'};
   display: inline-block;
   text-align: center;
-  padding: 12px 24px;
+  padding: 10px 24px;
   cursor: pointer;
   user-select: none;
   font-weight: 500;
