@@ -75,10 +75,5 @@ makeDir('stories/examples/'+ component_name +'').then(path => {
       if (err) throw err;
       console.log('Component Created!');
     });
-    
-    //Add the export the main index file
-    fs.appendFile('stories/examples/index.js', '\nexport { '+component_name+' } from \'./'+ component_name +'\'', function (err) {
-      if (err) throw err;
-      console.log('Export added to the example index file!');
-    });
+
 });
